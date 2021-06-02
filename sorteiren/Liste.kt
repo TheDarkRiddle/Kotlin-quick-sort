@@ -56,14 +56,7 @@ class Liste<T>:Iterable<T>{
             run =run.next
         }
     }
-    /* fun <E : Comparable<E>> List<E>.quickSort(): List<E> =
-         when {
-             size < 2 -> this
-             else -> {
-                 val (l, h) = subList(1, size).partition { it < first() }
-                 l.quickSort() + first() + h.quickSort()
-             }
-         }*/
+ 
     fun quickSort(comparator: Comparator<T>){
         if (this.size() < 2)return;
 
