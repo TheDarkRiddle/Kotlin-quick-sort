@@ -5,17 +5,17 @@ import java.util.Comparator
 interface People{
     val name:String
     val alter:Int
-    fun namenSagen()
-    fun alterSagen()
+    fun sayName()
+    fun sayAge()
 }
 //Humens with Lenguages
 class German(override val name: String, override val alter: Int) : People{
-    override fun namenSagen() { println("Hallo ich heiße $name."); }
-    override fun alterSagen(){ println("Ich bin $alter alt."); }
+    override fun sayName() { println("Hallo ich heiße $name."); }
+    override fun sayAge(){ println("Ich bin $alter alt."); }
 }
 class English(override val name: String, override val alter: Int):People{
-    override fun namenSagen() { println("My name is $name."); }
-    override fun alterSagen() { println("My age is $alter.") }
+    override fun sayName() { println("My name is $name."); }
+    override fun sayAge() { println("My age is $alter.") }
 }
 
 
@@ -130,10 +130,10 @@ fun main() {
     Crowd.addfirst(German("Haarald",3))
     Crowd.addlast(English("Kai",4))
 
-    Crowd.forEach { println("Sein name ist: ${it.name}(Alter: ${it.alter})") };
+    Crowd.forEach { println("My name is: ${it.name}(Age: ${it.alter})") };
     println("SORTED:")
     Crowd.quickSort(intComperator);
     println()
-    Crowd.forEach { println("Sein name ist: ${it.name}(Alter: ${it.alter})") };
+    Crowd.forEach { println("My name is: ${it.name}(Age: ${it.alter})") };
 
             }
