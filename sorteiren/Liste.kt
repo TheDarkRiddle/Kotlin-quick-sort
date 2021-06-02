@@ -44,6 +44,7 @@ class Liste<T>:Iterable<T>{
         mainList.getLast().next = toAdd.first;
         return mainList
     }
+    fun replace(replacement:Liste<T>){this.first = replacement.first}
     fun clearAll(){first=null}
 
     //Complexer
@@ -57,30 +58,6 @@ class Liste<T>:Iterable<T>{
         }
     }
  
-    fun quickSort(comparator: Comparator<T>){
-        if (this.size() < 2)return;
-
-        val pivot = this.getFirst().content;     //Comparison element
-
-        val less = Liste<T>();
-        val equal= Liste<T>();
-        val more = Liste<T>();
-
-        for (element in this){
-
-            val compared = comparator.compare(pivot,element)
-            when{
-                compared >  0 -> less.addfirst(element);
-                compared == 0 -> equal.addfirst(element);
-                compared <  0 -> more.addfirst(element);
-            }
-        }
-        less.quickSort(comparator)
-        more.quickSort(comparator)
-
-        this.first = conect(this,conect(equal,less)).first
-    }
-
     //iterator
     inner class ElementIterator : Iterator<T>{
         private var run = first
